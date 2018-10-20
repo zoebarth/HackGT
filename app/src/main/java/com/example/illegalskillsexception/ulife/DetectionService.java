@@ -25,6 +25,11 @@ public class DetectionService extends IntentService implements SensorEventListen
     public Sensor mAccelerometer;
     boolean isStopped;
     private static final int notif_id=1000;
+    private int index = 0;
+    private float [] histX = new float[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            histY = new float[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            histZ = new float[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            histTF= new float[] {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 
     public void onCreate() {
         mReceiver = new BroadcastReceiver() {
@@ -55,6 +60,8 @@ public class DetectionService extends IntentService implements SensorEventListen
         final float x = event.values[0], y = event.values[1], z = event.values[2];
         final float totalForce = (float)Math.sqrt(x*x+y*y+z*z);
 
+        histX[index] = x; histY[index] = y; histZ[index] = z; histTF[index]=totalForce;
+        index++; if (index > 19) index=0;
 
     }
 

@@ -16,7 +16,7 @@
         tools:context=".MainActivity" >
 
 
-        <Button android:id="@+id/self_mode_button"
+        <Button android:id="@+id/time_mode_button"
             android:layout_width="300sp"
             android:layout_height="200sp"
             android:layout_marginBottom="5sp"
@@ -31,7 +31,7 @@
             android:background="#E6E6FA"
             android:gravity="center" />-->
 
-        <Button android:id="@+id/group_mode_button"
+        <Button android:id="@+id/limit_mode_button"
             android:layout_width="300sp"
             android:layout_height="200sp"
             android:layout_marginBottom="5sp"
@@ -39,6 +39,15 @@
             android:background="#000"
             android:textColor="#ffffff"
             android:text="Limit" />
+
+        <Button android:id="@+id/start_button"
+            android:layout_width="300sp"
+            android:layout_height="40sp"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="5sp"
+            android:background="#000"
+            android:textColor="#ffffff"
+            android:text="Start" />
 
 
     </LinearLayout>

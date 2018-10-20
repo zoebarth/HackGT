@@ -19,6 +19,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".SelfMode"> </activity>
+
+        <service android:name=".DetectionService"
+            android:label="detection_service"
+            android:enabled="true" >
+        </service>
+
+
+
+
+
     </application>
 
 </manifest>
