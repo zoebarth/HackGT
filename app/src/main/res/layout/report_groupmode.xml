@@ -50,8 +50,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_gravity="center"
                 android:paddingBottom="0dp"
                 android:paddingTop="0dp">
 
@@ -243,9 +241,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:text=" Love to see it! For the __ hours and __ minutes you all spent disconnected from your phones, you reconnected with each other...pretty cool :)" />
+                android:layout_marginTop="10dp"
+                android:text="Love to see it! For the __ hours and __ minutes you all spent disconnected from your phones, you reconnected with each other...pretty cool :)" />
 
         </LinearLayout>
 
