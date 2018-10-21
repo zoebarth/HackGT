@@ -97,4 +97,5 @@
         android:paddingRight="15dp"
         android:text="stay connected bitches"
         android:textSize="30dp" />
+
 </ScrollView>
