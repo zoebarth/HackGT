@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView android:id="@+id/detox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="110dp"
+        android:paddingRight="110dp"
+        android:textSize="30dp"
+        android:text="DETOX MODE" />
+    <TextView android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="35dp"
+        android:textSize="15dp"
+        android:text="You're in the middle of a detox session, keep it up :)" />
+    <TextView android:id="@+id/countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingLeft="45dp"
+        android:paddingRight="45dp"
+        android:textSize="50dp"
+        android:text="COUNTDOWN" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp">
+        <TextView
+            android:id="@+id/journal_type_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
+            android:gravity="left"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:selectAllOnFocus="true"
+            android:text="times you've been active in the virtual world: "
+            android:textSize="15sp"
+            android:visibility="visible" />
+        <TextView
+            android:id="@+id/journal_type_text"
+            android:layout_width="75dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:hint="number"
+            android:inputType="text"
+            android:textColor="#000000" />
+    </LinearLayout>
+    <TextView android:id="@+id/countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingLeft="45dp"
+        android:paddingRight="45dp"
+        android:textSize="30dp"
+        android:text="stay connected bitches" />
+</LinearLayout>
