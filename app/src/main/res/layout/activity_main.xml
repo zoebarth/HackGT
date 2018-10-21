@@ -1,46 +1,105 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#E6E6FA" >
+    android:background="#E0E0EB">
 
-    <LinearLayout android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="10sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
         android:paddingLeft="10sp"
-        android:paddingRight="10sp"
         android:paddingTop="10sp"
-        tools:context=".MainActivity" >
+        android:paddingRight="10sp"
+        android:paddingBottom="10sp"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:layout_marginBottom="25sp"
+            android:background="#b8e58e"
+            android:gravity="bottom|center_horizontal"
+            android:paddingLeft="10sp"
+            android:paddingTop="10sp"
+            android:paddingRight="10sp"
+            android:paddingBottom="10sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="90dp"
+                android:gravity="top|center_horizontal"
+                android:text="Want to disconnect from tech \n and reconnect with the world?"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="#4D425D"
+                android:textSize="23sp"
+                app:fontFamily="serif" />
+
+            <Button
+                android:id="@+id/self_mode_button"
+                android:layout_width="250dp"
+                android:layout_height="60sp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#89B0DD"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Self Mode"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                tools:text="Self Mode" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:layout_marginBottom="25sp"
+            android:background="#B8E58E"
+            android:gravity="bottom|center_horizontal"
+            android:paddingLeft="10sp"
+            android:paddingTop="10sp"
+            android:paddingRight="10sp"
+            android:paddingBottom="10sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="90dp"
+                android:gravity="top|center_horizontal"
+                android:text="Want to disconnect from tech \n and reconnect with friends and family?"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="#4D425D"
+                android:textSize="23sp"
+                app:fontFamily="serif" />
+
+            <Button
+                android:id="@+id/group_mode_button"
+                android:layout_width="250dp"
+                android:layout_height="60sp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#89B0DD"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Group Mode"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="normal" />
+        </LinearLayout>
+
+=
 
 
-    <Button android:id="@+id/self_mode_button"
-        android:layout_width="300sp"
-        android:layout_height="200sp"
-        android:layout_marginBottom="5sp"
-        android:layout_marginTop="5sp"
-        android:background="#000066"
-        android:textColor="#ffffff"
-        android:text="Self Mode" />
 
-    <!--<TextView
-        style="@style/horizontalSeparator"
-        android:id="@+id/horizontal_divider12"
-        android:background="#E6E6FA"
-        android:gravity="center" />-->
-
-    <Button android:id="@+id/group_mode_button"
-        android:layout_width="300sp"
-        android:layout_height="200sp"
-        android:layout_marginBottom="5sp"
-        android:layout_marginTop="5sp"
-        android:background="#000066"
-        android:textColor="#ffffff"
-        android:text="Group Mode" />
-
-
-</LinearLayout>
+    </LinearLayout>
 
 </ScrollView>
