@@ -8,57 +8,84 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180sp"
-        android:layout_marginBottom="25sp"
-        android:background="#89B0DD"
-        android:gravity="bottom|center_horizontal"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
         android:paddingLeft="10sp"
         android:paddingTop="10sp"
         android:paddingRight="10sp"
         android:paddingBottom="10sp"
-        android:orientation="vertical">
+        tools:context=".MainActivity"
+        android:background="@drawable/background" >
 
 
-        <Button android:id="@+id/time_mode_button"
-            android:layout_width="300sp"
-            android:layout_height="150sp"
-            android:layout_marginBottom="5sp"
-            android:layout_marginTop="5sp"
-            android:background="#000"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180sp"
+            android:layout_marginBottom="25sp"
+            android:background="#89B0DD"
+            android:gravity="bottom|center_horizontal"
+            android:paddingLeft="10sp"
+            android:paddingTop="10sp"
+            android:paddingRight="10sp"
+            android:paddingBottom="10sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="90dp"
+                android:gravity="top|center_horizontal"
+                android:text= "How long do you want to disconnect for?"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="#4D425D"
+                android:textSize="23sp"
+                android:fontFamily="serif" />
+
+            <Button
+                android:id="@+id/time_mode_button"
+                android:layout_width="250dp"
+                android:layout_height="60sp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#574472"
+                android:gravity="center_vertical|center_horizontal"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                android:text="Set Time" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="20dp"
+            android:background="#71A83E"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="normal"
             android:textColor="#ffffff"
-            android:text="Time" />
-
-        <!--<TextView
-            style="@style/horizontalSeparator"
-            android:id="@+id/horizontal_divider12"
-            android:background="#E6E6FA"
-            android:gravity="center" />-->
-
-        <Button android:id="@+id/limit_mode_button"
-            android:layout_width="300sp"
-            android:layout_height="150sp"
-            android:layout_marginBottom="5sp"
-            android:layout_marginTop="5sp"
-            android:background="#000"
-            android:textColor="#ffffff"
-            android:text="Limit" />
-
-        <Button android:id="@+id/start_button"
-            android:layout_width="300sp"
-            android:layout_height="40sp"
-            android:layout_marginBottom="5sp"
-            android:layout_marginTop="5sp"
-            android:background="#000"
             android:text="Start" />
 
 
 
         <Button android:id="@+id/stop_button"
-            android:layout_width="300sp"
-            android:layout_height="40sp"
-            android:layout_marginBottom="5sp"
-            android:layout_marginTop="5sp"
-            android:background="#000"
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="#f44336"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="normal"
             android:textColor="#ffffff"
             android:text="Stop" />
 
