@@ -86,3 +86,5 @@
         android:textSize="30dp"
         android:text="stay connected bitches" />
 </LinearLayout>
+
+</ScrollView>
