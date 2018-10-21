@@ -17,7 +17,7 @@ public class SelfReport extends AppCompatActivity{
         TextView tv = (TextView) findViewById(R.id.pick_up_textview);
         tv.setText(DetectionService.getPickedUp() + "");
 
-        TextView tv2 = (TextView) findViewById(R.id.time_elapsed_textview);
-        tv2.setText(SelfMode.getDifHour() + ":" + SelfMode.getDifMinute());
+//        TextView tv2 = (TextView) findViewById(R.id.time_elapsed_textview);
+//        tv2.setText(SelfMode.getDifHour() + ":" + SelfMode.getDifMinute());
     }
 }
