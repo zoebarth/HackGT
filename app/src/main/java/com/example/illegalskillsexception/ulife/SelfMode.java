@@ -15,6 +15,7 @@ import android.app.TimePickerDialog;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.Random;
 
 /**
@@ -24,6 +25,8 @@ import java.util.Random;
 public class SelfMode extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     static int startHour; static int startMinute;
+    static int nowHour; static int nowMinute;
+    static int difHour; static int difMinute;
     boolean timeSet = false;
     public static boolean detectionService;
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,9 @@ public class SelfMode extends AppCompatActivity implements TimePickerDialog.OnTi
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Calendar rightNow = Calendar.getInstance();
+                nowHour = rightNow.get(Calendar.HOUR_OF_DAY);
+                nowMinute = rightNow.get(Calendar.MINUTE);
                 if(timeSet) {
                     startBackgroundService();
                     Toast.makeText(startButton.getContext(), "Detection Service Started", Toast.LENGTH_SHORT).show();
@@ -98,6 +104,13 @@ public class SelfMode extends AppCompatActivity implements TimePickerDialog.OnTi
         startHour = hourOfDay;
         startMinute = minute;
         timeSet = true;
+        difHour = startHour - nowHour;
+        if(startMinute < nowMinute) {
+            difMinute = (startMinute + 60) - nowMinute;
+        }
+        else {
+            difMinute = startMinute - nowMinute;
+        }
         //tvTime.setText(startHour + ":" + startMinute);
         // WHEN TIME SET SET BOOLEAN TO TRUE TO ENABLE THE START BUTTON
     }
@@ -108,6 +121,14 @@ public class SelfMode extends AppCompatActivity implements TimePickerDialog.OnTi
 
     public static int getStartMinute() {
         return startMinute;
+    }
+
+    public static int getDifHour() {
+        return difHour;
+    }
+
+    public static int getDifMinute() {
+        return difMinute;
     }
 
 

@@ -29,7 +29,7 @@ public class DetectionService extends IntentService implements SensorEventListen
     static boolean isStopped;
     boolean moved;
     Vibrator v;
-    int pickedUp;
+    static int pickedUp;
     int timer = 200;
     boolean alarmAllowed = false;
     private static final int notif_id=1000;
@@ -46,6 +46,7 @@ public class DetectionService extends IntentService implements SensorEventListen
     boolean firstTime;
 
     public void onCreate() {
+        pickedUp = 0;
         mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -78,9 +79,10 @@ public class DetectionService extends IntentService implements SensorEventListen
         if(SelfMode.getStartHour() == hour && SelfMode.getStartMinute() == min && firstTime) {
             //Toast.makeText(this, "You Picked Up Your Phone", Toast.LENGTH_SHORT).show();
             firstTime = false;
+            alarmAllowed = false;
             Intent intent = new Intent(this, SelfReport.class);
             (DetectionService.this).startActivity(intent);
-            alarmAllowed = false;
+
             //onDestroy();
         }
         final float x = event.values[0], y = event.values[1], z = event.values[2];
@@ -162,6 +164,10 @@ public class DetectionService extends IntentService implements SensorEventListen
         if (isStopped)
             mSensorManager.unregisterListener(this, mAccelerometer);
         //unregisterReceiver(mReceiver);
+    }
+
+    public static int getPickedUp() {
+        return pickedUp;
     }
 
 }
