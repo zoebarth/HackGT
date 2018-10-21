@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 public class SelfMode extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
+    public static boolean detectionService;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.self_mode_view);
@@ -44,11 +45,26 @@ public class SelfMode extends AppCompatActivity implements TimePickerDialog.OnTi
             }
         });
 
+        final Button stopButton = findViewById(R.id.stop_button);
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                stopBackgroundService();
+                Toast.makeText(stopButton.getContext(), "Detection Service Stopped", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     public void startBackgroundService() {
         Intent intent = new Intent(SelfMode.this, DetectionService.class);
         ((SelfMode) SelfMode.this).startService(intent);
+        detectionService = true;
+    }
+
+    public void stopBackgroundService() {
+        detectionService = false;
     }
 
     @Override

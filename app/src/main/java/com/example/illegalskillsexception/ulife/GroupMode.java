@@ -16,13 +16,13 @@ public class GroupMode extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_mode);
 
-
         final Button startButton = findViewById(R.id.start_group_button);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //should give pop up dialog with new group code
-                Toast.makeText(startButton.getContext(), "Detection Service Started", Toast.LENGTH_SHORT).show();
+                //should give pop up dialog with new group code randomally generated locally
+                //other users need to put group code in
+                //
             }
         });
 

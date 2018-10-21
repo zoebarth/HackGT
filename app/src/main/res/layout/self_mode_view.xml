@@ -18,7 +18,7 @@
 
         <Button android:id="@+id/time_mode_button"
             android:layout_width="300sp"
-            android:layout_height="200sp"
+            android:layout_height="150sp"
             android:layout_marginBottom="5sp"
             android:layout_marginTop="5sp"
             android:background="#000"
@@ -33,7 +33,7 @@
 
         <Button android:id="@+id/limit_mode_button"
             android:layout_width="300sp"
-            android:layout_height="200sp"
+            android:layout_height="150sp"
             android:layout_marginBottom="5sp"
             android:layout_marginTop="5sp"
             android:background="#000"
@@ -48,6 +48,15 @@
             android:background="#000"
             android:textColor="#ffffff"
             android:text="Start" />
+
+        <Button android:id="@+id/stop_button"
+            android:layout_width="300sp"
+            android:layout_height="40sp"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="5sp"
+            android:background="#000"
+            android:textColor="#ffffff"
+            android:text="Stop" />
 
 
     </LinearLayout>

@@ -22,10 +22,10 @@ import java.lang.Math;
 
 public class DetectionService extends IntentService implements SensorEventListener {
 
-    public BroadcastReceiver mReceiver;
-    public SensorManager mSensorManager;
-    public Sensor mAccelerometer;
-    boolean isStopped;
+    public static BroadcastReceiver mReceiver;
+    public static SensorManager mSensorManager;
+    public static Sensor mAccelerometer;
+    static boolean isStopped;
     boolean moved;
     Vibrator v;
     int pickedUp;
@@ -95,12 +95,14 @@ public class DetectionService extends IntentService implements SensorEventListen
 
     //make some sort of variable to skip an alarm
     public void raiseAlarm(){
-        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(500);
-        Toast.makeText(this, "You Picked Up Your Phone", Toast.LENGTH_SHORT).show();
-        moved = false;
-        alarmAllowed = false;
-        pickedUp++;
+        if(SelfMode.detectionService) {
+            v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(500);
+            Toast.makeText(this, "You Picked Up Your Phone", Toast.LENGTH_SHORT).show();
+            moved = false;
+            alarmAllowed = false;
+            pickedUp++;
+        }
     }
 
     private Notification getMyActivityNotification(String text){
@@ -135,6 +137,14 @@ public class DetectionService extends IntentService implements SensorEventListen
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (isStopped)
+            mSensorManager.unregisterListener(this, mAccelerometer);
+        unregisterReceiver(mReceiver);
     }
 
 }
