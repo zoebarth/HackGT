@@ -1,15 +1,17 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#E6E6FA" >
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:gravity="top|center_horizontal"
         android:orientation="vertical"
         android:paddingLeft="10sp"
         android:paddingTop="10sp"
@@ -18,33 +20,47 @@
         tools:context=".MainActivity"
         android:background="@drawable/background" >
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="80dp"
+            android:layout_marginTop="80dp"
+            android:fontFamily="serif"
+            android:gravity="top|center_horizontal"
+            android:text="Group Mode"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="#4D425D"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/start_group_button"
-            android:layout_width="250dp"
-            android:layout_height="80sp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="25dp"
-            android:background="#89B0DD"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:typeface="normal"
-            android:text="Start New Group" />
 
-        <Button android:id="@+id/join_group_button"
-            android:layout_width="250dp"
-            android:layout_height="80sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="0dp"
-            android:background="#574472"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:typeface="normal"
-            android:text="Enter Existing Group" />
+            <Button
+                android:id="@+id/start_group_button"
+                android:layout_width="250dp"
+                android:layout_height="80sp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="25dp"
+                android:background="#89B0DD"
+                android:gravity="center_vertical|center_horizontal"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                android:text="Start New Group" />
+
+            <Button android:id="@+id/join_group_button"
+                android:layout_width="250dp"
+                android:layout_height="80sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="0dp"
+                android:background="#574472"
+                android:gravity="center_vertical|center_horizontal"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                android:text="Enter Existing Group" />
 
 
     </LinearLayout>
