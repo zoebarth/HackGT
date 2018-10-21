@@ -25,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button groupModeButton = findViewById(R.id.group_mode_button);
+        groupModeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, GroupMode.class);
+                startActivityForResult(intent, 1235);
+            }
+        });
     }
 
 

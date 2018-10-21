@@ -16,7 +16,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-
+import android.os.Vibrator;
+import android.widget.Toast;
+import java.lang.Math;
 
 public class DetectionService extends IntentService implements SensorEventListener {
 
@@ -24,12 +26,22 @@ public class DetectionService extends IntentService implements SensorEventListen
     public SensorManager mSensorManager;
     public Sensor mAccelerometer;
     boolean isStopped;
+    boolean moved;
+    Vibrator v;
+    int pickedUp;
+    int timer = 200;
+    boolean alarmAllowed = false;
     private static final int notif_id=1000;
     private int index = 0;
+    private int index2 = 0;
     private float [] histX = new float[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             histY = new float[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             histZ = new float[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            histTF= new float[] {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+            histTF= new float[] {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            histTF2 = new float[100],
+            Dif = new float[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    float avgDif;
+    float sum;
 
     public void onCreate() {
         mReceiver = new BroadcastReceiver() {
@@ -59,10 +71,36 @@ public class DetectionService extends IntentService implements SensorEventListen
     public void onSensorChanged(SensorEvent event) {
         final float x = event.values[0], y = event.values[1], z = event.values[2];
         final float totalForce = (float)Math.sqrt(x*x+y*y+z*z);
-
-        histX[index] = x; histY[index] = y; histZ[index] = z; histTF[index]=totalForce;
+        histX[index] = x; histY[index] = y; histZ[index] = z; histTF[index]=totalForce; Dif[index] = Math.abs(totalForce - 10);
         index++; if (index > 19) index=0;
+        for(int i = 1; i < Dif.length; i++){
+            if(Math.abs(Dif[i] - Dif[i-1]) > 4){
+                moved = true;
+            }
+            sum = sum + Dif[i];
+            if(i == Dif.length-1){
+                 avgDif = sum/(Dif.length-1);
+                 sum = 0;
+            }
+        }
+        if(moved && avgDif > 2.5 && alarmAllowed){
+            raiseAlarm();
+        }
+        timer--;
+        if (timer == 0){
+            alarmAllowed = true;
+            timer = 200;
+        }
+    }
 
+    //make some sort of variable to skip an alarm
+    public void raiseAlarm(){
+        v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(500);
+        Toast.makeText(this, "You Picked Up Your Phone", Toast.LENGTH_SHORT).show();
+        moved = false;
+        alarmAllowed = false;
+        pickedUp++;
     }
 
     private Notification getMyActivityNotification(String text){

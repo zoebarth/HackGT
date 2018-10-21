@@ -1,0 +1,45 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E6E6FA" >
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10sp"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingTop="10sp"
+        tools:context=".MainActivity" >
+
+        <!--<TextView
+            style="@style/horizontalSeparator"
+            android:id="@+id/horizontal_divider12"
+            android:background="#E6E6FA"
+            android:gravity="center" />-->
+
+        <Button android:id="@+id/start_group_button"
+            android:layout_width="300sp"
+            android:layout_height="200sp"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="5sp"
+            android:background="#6524"
+            android:textColor="#ffffff"
+            android:text="Start New Group" />
+
+        <Button android:id="@+id/start_button"
+            android:layout_width="300sp"
+            android:layout_height="200sp"
+            android:layout_marginBottom="5sp"
+            android:layout_marginTop="5sp"
+            android:background="#6524"
+            android:textColor="#ffffff"
+            android:text="Enter Existing Group" />
+
+
+    </LinearLayout>
+
+</ScrollView>
