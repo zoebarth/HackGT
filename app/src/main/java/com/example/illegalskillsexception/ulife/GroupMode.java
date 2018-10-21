@@ -116,6 +116,7 @@ public class GroupMode extends AppCompatActivity{
         sessionEndButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SelfMode.detectionService = false;
                 Intent intent = new Intent(GroupMode.this, GroupReport.class);
                 (GroupMode.this).startActivity(intent);
             }
