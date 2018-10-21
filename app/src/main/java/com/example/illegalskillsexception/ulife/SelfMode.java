@@ -83,6 +83,8 @@ public class SelfMode extends AppCompatActivity implements TimePickerDialog.OnTi
 
                 stopBackgroundService();
                 Toast.makeText(stopButton.getContext(), "Detection Service Stopped", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SelfMode.this, SelfReport.class);
+                (SelfMode.this).startActivity(intent);
             }
         });
 
