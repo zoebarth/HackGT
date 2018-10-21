@@ -18,6 +18,20 @@
         tools:context=".MainActivity"
         android:background="@drawable/background">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="serif"
+            android:gravity="top|center_horizontal"
+            android:text="~Detox w/ deteX~"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="#4D425D"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200sp"

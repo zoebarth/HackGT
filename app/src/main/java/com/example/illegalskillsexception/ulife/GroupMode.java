@@ -39,7 +39,7 @@ public class GroupMode extends AppCompatActivity{
             public void onClick(View view) {
                 GroupID = String.format("%04d", random.nextInt(10000));
                 String msg;
-                msg = "Your Group ID is: " + GroupID + "\n" + "Share this code with your friends!";
+                msg = "Your Group ID is: " + GroupID + ". Share this code with your friends!";
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(GroupMode.this,  AlertDialog.THEME_HOLO_LIGHT);
                 // android.R.style
                 // .Theme_Material_Light_Dialog_Alert);
@@ -72,7 +72,7 @@ public class GroupMode extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(GroupMode.this);
-                builder.setTitle("Enter Your Existing Group Code");
+                builder.setTitle("Enter Your Existing Group Code: ");
 
                 final EditText input = new EditText(GroupMode.this);
 
