@@ -14,24 +14,24 @@ import javax.ws.rs.core.Response;
  */
 final class GroupRESTService {
 
-    private static final String PUSH_ENDPOINT_URL = "https://y5p1nc89p6.execute-api.us-east-1.amazonaws.com/api/v1/game/POST/info/{group_id}/{game_status}";
+    private static final String PUSH_ENDPOINT_URL = "https://y5p1nc89p6.execute-api.us-east-1.amazonaws.com/api/v1/game/POST/info/{key}/{value}";
 
-    private static final String GET_ENDPOINT_URL = "https://y5p1nc89p6.execute-api.us-east-1.amazonaws.com/api/v1/game/GET/info/{group_id}";
+    private static final String GET_ENDPOINT_URL = "https://y5p1nc89p6.execute-api.us-east-1.amazonaws.com/api/v1/game/GET/info/{key}";
 
-    private static String buildPUSHUrl(String groupID, String gameStatus) {
-        return PUSH_ENDPOINT_URL.replace("{group_id}", groupID).replace("{game_status}", gameStatus);
+    private static String buildPUSHUrl(String key, String value) {
+        return PUSH_ENDPOINT_URL.replace("{key}", key).replace("{value}", value);
     }
 
     /**
      *
-     * @param groupID ID of the group participating in the competition
-     * @param gameStatus the updated status for the game
+     * @param key ID of the group participating in the competition
+     * @param value the updated status for the game
      * @return true/false if the request was successful
      */
-    public static boolean pushGameStatus(String groupID, String gameStatus) {
+    public static boolean pushKeyValue(String key, String value) {
         Client client = ClientBuilder.newClient();
 
-        WebTarget resource = client.target(buildPUSHUrl(groupID, gameStatus));
+        WebTarget resource = client.target(buildPUSHUrl(key, value));
 
         Invocation.Builder request = resource.request();
         request.accept(MediaType.APPLICATION_JSON);
@@ -49,20 +49,20 @@ final class GroupRESTService {
         return false;
     }
 
-    private static String buildGETUrl(String groupID) {
-        return GET_ENDPOINT_URL.replace("{group_id}", groupID);
+    private static String buildGETUrl(String key) {
+        return GET_ENDPOINT_URL.replace("{key}", key);
     }
 
     /**
      * Get's game status from the cloud servers.
      *
-     * @param groupID ID of the group participating in the competition
+     * @param key ID of the group participating in the competition
      * @return the status of the game ("" otherwise)
      */
-    public static String getGameStatus(String groupID) {
+    public static String getValue(String key) {
         Client client = ClientBuilder.newClient();
 
-        WebTarget resource = client.target(buildGETUrl(groupID));
+        WebTarget resource = client.target(buildGETUrl(key));
 
         Invocation.Builder request = resource.request();
         request.accept(MediaType.APPLICATION_JSON);
