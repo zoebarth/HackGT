@@ -1,18 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E6E6FA" >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="10sp"
+        android:paddingTop="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="10sp"
+        tools:context=".MainActivity"
+        android:background="@drawable/background" >
+
     <TextView android:id="@+id/detox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="110dp"
-        android:paddingRight="110dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginBottom="20dp"
         android:textSize="30dp"
         android:text="DETOX MODE" />
     <TextView android:id="@+id/msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:paddingLeft="30dp"
@@ -22,14 +41,16 @@
     <TextView android:id="@+id/countdown1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:paddingTop="15dp"
-        android:paddingLeft="45dp"
-        android:paddingRight="45dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:textSize="50dp"
         android:text="COUNTDOWN" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:orientation="horizontal"
         android:paddingBottom="0dp"
         android:paddingTop="0dp">
@@ -43,7 +64,7 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:selectAllOnFocus="true"
-            android:text="times you've been active in the virtual world: "
+            android:text="times you've been active \n in the virtual world: "
             android:textSize="15sp"
             android:visibility="visible" />
         <TextView
@@ -58,9 +79,10 @@
     <TextView android:id="@+id/countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:paddingTop="15dp"
-        android:paddingLeft="45dp"
-        android:paddingRight="45dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:textSize="30dp"
         android:text="stay connected bitches" />
 </LinearLayout>
