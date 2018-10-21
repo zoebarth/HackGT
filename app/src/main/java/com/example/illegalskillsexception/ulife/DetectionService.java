@@ -119,7 +119,7 @@ public class DetectionService extends IntentService implements SensorEventListen
             alarmAllowed = false;
             pickedUp++;
             if(GroupMode.isGroupMode) {
-                GroupManagementService.updateUserInfo(GroupMode.getGroupID(), GroupMode.getUserID(), pickedUp);
+                //GroupManagementService.updateUserInfo(GroupMode.getGroupID(), GroupMode.getUserID(), pickedUp);
             }
         }
     }

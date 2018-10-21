@@ -26,6 +26,8 @@
 
         <activity android:name=".SelfReport"> </activity>
 
+        <activity android:name=".GroupReport"> </activity>
+
         <service android:name=".DetectionService"
             android:label="detection_service"
             android:enabled="true" >

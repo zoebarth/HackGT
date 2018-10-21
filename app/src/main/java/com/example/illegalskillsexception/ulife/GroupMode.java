@@ -112,6 +112,15 @@ public class GroupMode extends AppCompatActivity{
             }
         });
 
+        final Button sessionEndButton = findViewById(R.id.end_group_button);
+        sessionEndButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GroupMode.this, GroupReport.class);
+                (GroupMode.this).startActivity(intent);
+            }
+        });
+
     }
 
     public void startBackgroundService() {
