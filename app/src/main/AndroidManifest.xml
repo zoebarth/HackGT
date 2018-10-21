@@ -24,6 +24,8 @@
 
         <activity android:name=".GroupMode"> </activity>
 
+        <activity android:name=".SelfReport"> </activity>
+
         <service android:name=".DetectionService"
             android:label="detection_service"
             android:enabled="true" >

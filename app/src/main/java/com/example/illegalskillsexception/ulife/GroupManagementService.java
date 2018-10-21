@@ -46,5 +46,6 @@ public class GroupManagementService {
         String userInfo = GroupRESTService.getValue(groupID);
 
         return userInfo.split(USER_DATA_DELIMETER);
+        //when using this just parse out the number
     }
 }

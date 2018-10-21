@@ -19,6 +19,7 @@ import android.hardware.SensorManager;
 import android.os.Vibrator;
 import android.widget.Toast;
 import java.lang.Math;
+import java.util.Calendar;
 
 public class DetectionService extends IntentService implements SensorEventListener {
 
@@ -42,6 +43,7 @@ public class DetectionService extends IntentService implements SensorEventListen
             Dif = new float[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     float avgDif;
     float sum;
+    boolean firstTime;
 
     public void onCreate() {
         mReceiver = new BroadcastReceiver() {
@@ -57,6 +59,7 @@ public class DetectionService extends IntentService implements SensorEventListen
         android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_FOREGROUND);
         this.startForeground();
         isStopped = false;
+        firstTime = true;
     }
 
     public DetectionService() {
@@ -69,6 +72,17 @@ public class DetectionService extends IntentService implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        Calendar rightNow = Calendar.getInstance();
+        int hour = rightNow.get(Calendar.HOUR_OF_DAY);
+        int min = rightNow.get(Calendar.MINUTE);
+        if(SelfMode.getStartHour() == hour && SelfMode.getStartMinute() == min && firstTime) {
+            //Toast.makeText(this, "You Picked Up Your Phone", Toast.LENGTH_SHORT).show();
+            firstTime = false;
+            Intent intent = new Intent(this, SelfReport.class);
+            (DetectionService.this).startActivity(intent);
+            alarmAllowed = false;
+            //onDestroy();
+        }
         final float x = event.values[0], y = event.values[1], z = event.values[2];
         final float totalForce = (float)Math.sqrt(x*x+y*y+z*z);
         histX[index] = x; histY[index] = y; histZ[index] = z; histTF[index]=totalForce; Dif[index] = Math.abs(totalForce - 10);
@@ -95,13 +109,16 @@ public class DetectionService extends IntentService implements SensorEventListen
 
     //make some sort of variable to skip an alarm
     public void raiseAlarm(){
-        if(SelfMode.detectionService) {
+        if(SelfMode.detectionService || GroupMode.groupDetectionService) {
             v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             v.vibrate(500);
             Toast.makeText(this, "You Picked Up Your Phone", Toast.LENGTH_SHORT).show();
             moved = false;
             alarmAllowed = false;
             pickedUp++;
+            if(GroupMode.isGroupMode) {
+                GroupManagementService.updateUserInfo(GroupMode.getGroupID(), GroupMode.getUserID(), pickedUp);
+            }
         }
     }
 
@@ -144,7 +161,7 @@ public class DetectionService extends IntentService implements SensorEventListen
         super.onDestroy();
         if (isStopped)
             mSensorManager.unregisterListener(this, mAccelerometer);
-        unregisterReceiver(mReceiver);
+        //unregisterReceiver(mReceiver);
     }
 
 }

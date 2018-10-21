@@ -163,5 +163,4 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-
 </ScrollView>
