@@ -117,12 +117,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text=" Love to see it! For the __ hours and __ minutes you spent disconnected from your phone, you reconnected with the world around you...pretty cool!" />
+            android:text=" Love to see it! For the time you spent disconnected from your phone, you reconnected with the world around you...pretty cool!" />
         <TextView android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Shoot for getting on your phone less than __ times next time! Keep it up :)
+            android:text="Shoot for getting on your phone less next time! Keep it up :)
     " />
     </LinearLayout>
 
