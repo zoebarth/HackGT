@@ -71,7 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:hint="00:00"
+                        android:text="01:30"
                         android:inputType="text"
                         android:textColor="#000000"
                         android:textSize="22sp" />
@@ -103,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:hint="0 points"
+                    android:hint="3 points"
                     android:inputType="text"
                     android:textColor="#000000"
                     android:textSize="14sp" />
@@ -136,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:hint="0 points"
+                    android:hint="2 points"
                     android:inputType="text"
                     android:textColor="#000000"
                     android:textSize="14sp" />
@@ -200,7 +200,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:hint="0 points"
+                    android:hint="6 points"
                     android:inputType="text"
                     android:textColor="#000000"
                     android:textSize="14sp" />
